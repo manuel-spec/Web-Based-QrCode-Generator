@@ -1,3 +1,4 @@
+Pillow
 qrcode
 Pillow
 asgiref==3.5.2
