@@ -10,5 +10,5 @@ def QrGeneratorView(request):
 
 def generateQr(request):
     qr = qrcode.make(request.POST['noss'])
-    qr.save('QrCode\static\qr1.jpg')
+    qr.save('QrCode\static\qrc.jpg')
     return redirect('qrcode')

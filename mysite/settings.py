@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-$kp7bj9tw^hif@9qtmon6cful$))6!ec9u7+0oog=g8+gsbv9i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'http://webqrcodegenr.herokuapp.com/']
 
 
 # Application definition
@@ -130,8 +130,5 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
-if os.getcwd == '/app':
-    DEBUG = False
 
 django_heroku.settings(locals())
