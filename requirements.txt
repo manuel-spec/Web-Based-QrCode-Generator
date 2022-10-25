@@ -1,3 +1,4 @@
+Pillow
 qrcode
 asgiref==3.5.2
 dj-database-url==0.5.0
