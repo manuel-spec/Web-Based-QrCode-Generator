@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QrCode Generator - Page</title>
+    <link rel="stylesheet" href="{% static 'bootstrap\css\bootstrap.min.css' %}">
+    <script src="{% static 'jquery-3.6.1.min.js' %}"></script>
+    <style>
+        #ani,#sq{
+            width: 40px;
+            height: 40px;
+            border-radius: 100px;
+            background-color: #eee;
+            padding: 10px;
+            margin: 10px;
+            visibility: hidden;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $(function(){
+                function loop(){
+                    $('#ani')
+                    .toggle(1000)
+                    .toggle(1000, loop);
+                }
+                loop();
+            });
+           
+        });
+    </script>
+</head>
+<body>
+    <div class="container bg-light p-5">
+        <div class="row">
+            <div id="ani">
+
+            </div>
+            <form action="{% url 'qrcodegen' %}" method="post" class="container col p-4">
+                {% csrf_token %}
+                <fieldset class="border p-4">
+                    <h2 class="text-center p-4" style="font-family: cursive;">QrCode Generator App</h2>
+                    <textarea name="noss" class="form-control"></textarea>
+                    <div class="container mt-4">
+                        <input type="submit" value="Generate" class="btn btn-primary">
+                    </div>
+                </fieldset>
+            </form>
+            
+            <div class="container col">
+                <img src="{% static 'qr1.jpg' %}" alt="QrCode Here"><br>
+                <a href="{% static 'qrs.jpg' %}" class="btn btn-primary">Save Qr</a>
+            </div>
+        </div>
+    </div>
+    <div id="sq">
+
+    </div>
+
+    <div class="text-center text-white copyright py-4">
+        <div class="container"><small>Copyright ©&nbsp;Amanuel Asefa 2022</small></div>
+    </div>
+    
+</body>
+</html>
